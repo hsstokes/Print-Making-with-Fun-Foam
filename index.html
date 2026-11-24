@@ -3,1516 +3,814 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Print Making with Fun Foam - Digital Manipulations</title>
+<title>Print Making with Fun Foam — Fashion Design Term 3</title>
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
 :root {
-  --primary: #ea37a3;
-  --primary-light: #fdf1f5;
-  --secondary: #0a8080;
-  --secondary-light: #f5ffff;
-  --dark: #222;
-  --light: #fff;
-  --grid-light: #e0e0e0;
-  --homework: #ea37a3;
-  --homework-light: #fdf1f5;
-  --inclass: #0a8080;
-  --inclass-light: #f5ffff;
-  --homework-banner: #ffebf5;
-  --inclass-banner: #e6ffff;
-  --quiz: #4682b4;
-  --quiz-light: #f0f8ff;
+  --ink: #1a1a1a;
+  --paper: #f2ede8;
+  --grid: #ddd8d2;
+  --teal: #0a7a7a;   --teal-light: #e3f2f1;
+  --pink: #ea37a3;   --pink-light: #fde9f4;
+  --purple: #6c35c9; --purple-light: #efe8fb;
+  --blue: #2563a8;   --blue-light: #e6eef8;
+  --gold: #c87900;   --gold-light: #fbf0dc;
+  --warm-mid: #d4cfc8;
+  --concrete: #8a8a8a;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: "Space Mono", "IBM Plex Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--ink);
+  background-color: var(--paper);
   background-image:
-    linear-gradient(var(--grid-light) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-light) 1px, transparent 1px),
-    linear-gradient(#ffeaf5 2px, transparent 2px),
-    linear-gradient(90deg, #ffeaf5 2px, transparent 2px);
-  background-size: 64px 64px, 64px 64px, 320px 320px, 320px 320px;
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 40px 40px;
   background-attachment: fixed;
-  color: var(--dark);
-  padding: 20px;
   line-height: 1.7;
   font-size: 16px;
+  padding: 32px 20px 80px;
 }
 
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.97);
-  border: 3px double var(--primary);
-  border-radius: 12px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-  padding: 2rem 3rem;
-}
+.wrap { max-width: 960px; margin: 0 auto; }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 1.5rem;
-  }
+/* ---------- Header ---------- */
+header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 20px; flex-wrap: wrap;
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 20px; margin-bottom: 24px;
 }
-
-.content-section {
-  display: none;
+.eyebrow {
+  font-family: 'Space Mono', monospace; font-size: 0.78rem;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--pink);
+  margin-bottom: 8px;
 }
-
-.content-section.active {
-  display: block;
-  animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.main-navigation {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
-  margin: 25px 0;
-}
-
-.nav-block {
-  background: #f8f8f8;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  padding: 18px 15px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  min-height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.nav-block:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
-.nav-block h3 {
-  font-size: 1rem;
-  margin: 0 0 6px 0;
-  position: relative;
-  z-index: 2;
-}
-
-.nav-block p {
-  font-size: 0.8rem;
-  margin: 0;
-  opacity: 0.8;
-  position: relative;
-  z-index: 2;
-}
-
-.nav-overview {
-  border-color: var(--secondary);
-  background-color: var(--secondary-light);
-}
-
-.nav-overview h3 {
-  color: var(--secondary);
-}
-
-.nav-homework {
-  border-color: var(--homework);
-  background-color: var(--homework-light);
-}
-
-.nav-homework h3 {
-  color: var(--homework);
-}
-
-.nav-task1 {
-  border-color: var(--inclass);
-  background-color: var(--inclass-light);
-}
-
-.nav-task1 h3 {
-  color: var(--inclass);
-}
-
-.nav-task2 {
-  border-color: #9b59b6;
-  background-color: #f5eef8;
-}
-
-.nav-task2 h3 {
-  color: #9b59b6;
-}
-
-.nav-task3 {
-  border-color: var(--quiz);
-  background-color: var(--quiz-light);
-}
-
-.nav-task3 h3 {
-  color: var(--quiz);
-}
-
-.active-block {
-  background-color: var(--secondary) !important;
-  color: white;
-  box-shadow: 0 8px 20px rgba(10, 128, 128, 0.3);
-  transform: translateY(-5px);
-}
-
-.active-block h3, .active-block p {
-  color: white !important;
-}
-
-.nav-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin: 30px 0 20px;
-}
-
-.nav-btn {
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: inherit;
-  font-size: 1rem;
-}
-
-.nav-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-.prev-btn {
-  background-color: #f2f2f2;
-  color: #555;
-}
-
-.prev-btn::before {
-  content: "←";
-}
-
-.next-btn {
-  background-color: var(--secondary);
-  color: white;
-}
-
-.next-btn::after {
-  content: "→";
-}
-
-.progress-bar-container {
-  height: 10px;
-  background-color: #eee;
-  border-radius: 5px;
-  margin: 20px 0;
-  overflow: hidden;
-}
-
-.progress-bar {
-  height: 100%;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  width: 0%;
-  transition: width 0.3s ease;
-}
-
-h1, h2, h3 {
-  font-family: "Space Mono", "IBM Plex Mono", monospace;
-  letter-spacing: 0.5px;
-  margin-bottom: 0.8em;
-}
-
 h1 {
-  color: var(--primary);
-  font-size: 2rem;
-  border-bottom: 3px dotted var(--secondary);
-  padding-bottom: 15px;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  font-weight: bold;
+  font-family: 'DM Serif Display', serif; font-weight: 400;
+  font-size: clamp(2.2rem, 6vw, 3.6rem); line-height: 1.05;
+}
+h1 em { color: var(--teal); font-style: italic; }
+.meta {
+  font-family: 'Space Mono', monospace; font-size: 0.85rem;
+  text-align: right; color: var(--concrete);
+}
+.meta strong { color: var(--ink); display: block; font-size: 1rem; }
+
+/* ---------- Diagonal rule ---------- */
+.rule {
+  height: 10px; margin: 34px 0;
+  background: linear-gradient(90deg, var(--pink), var(--teal));
+  transform: skewX(-15deg);
 }
 
 h2 {
-  color: var(--secondary);
-  font-size: 1.4rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  font-weight: bold;
+  font-family: 'DM Serif Display', serif; font-weight: 400;
+  font-size: 1.9rem; margin: 26px 0 14px;
+  display: flex; align-items: center; gap: 14px;
 }
-
 h2::before {
-  content: "";
-  display: inline-block;
-  width: 8px;
-  height: 25px;
-  background: var(--primary);
-  margin-right: 15px;
+  content: ""; width: 5px; height: 30px; background: var(--pink); flex-shrink: 0;
 }
+h3 { font-family: 'Space Mono', monospace; font-size: 1rem; margin: 18px 0 8px; }
+p { margin-bottom: 12px; }
 
-h3 {
-  font-size: 1.2rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--primary);
+/* ---------- Progress + nav ---------- */
+.progress-wrap { margin-bottom: 18px; }
+.progress-label {
+  font-family: 'Space Mono', monospace; font-size: 0.78rem;
+  display: flex; justify-content: space-between; margin-bottom: 6px;
 }
+.progress-bar { height: 10px; background: var(--warm-mid); border: 2px solid var(--ink); }
+.progress-fill { height: 100%; width: 0; background: var(--teal); transition: width .35s; }
 
-p {
-  line-height: 1.8;
-  margin-bottom: 1.2em;
-  font-size: 1.05rem;
+.nav-block {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px; margin-bottom: 10px;
 }
+.nav-btn {
+  font-family: 'Space Mono', monospace; font-size: 0.82rem; font-weight: 700;
+  padding: 12px 10px; background: #fff; color: var(--ink);
+  border: 2px solid var(--ink); cursor: pointer; text-align: left;
+  transition: transform .15s, box-shadow .15s;
+}
+.nav-btn small { display: block; font-weight: 400; color: var(--concrete); font-size: 0.72rem; }
+.nav-btn:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--ink); }
+.nav-btn.active { color: #fff; }
+.nav-btn.active small { color: rgba(255,255,255,.85); }
+.nav-btn[data-c="ink"].active    { background: var(--ink); }
+.nav-btn[data-c="teal"].active   { background: var(--teal); border-color: var(--teal); }
+.nav-btn[data-c="pink"].active   { background: var(--pink); border-color: var(--pink); }
+.nav-btn[data-c="purple"].active { background: var(--purple); border-color: var(--purple); }
+.nav-btn[data-c="blue"].active   { background: var(--blue); border-color: var(--blue); }
+.nav-btn[data-c="gold"].active   { background: var(--gold); border-color: var(--gold); }
+.nav-btn.done::after { content: " ✓"; }
+
+/* ---------- Sections ---------- */
+.section { display: none; animation: fade .3s; }
+.section.active { display: block; }
+@keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
 .section-banner {
-  margin: 25px 0;
-  padding: 15px 20px;
-  border-radius: 10px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  position: relative;
-  overflow: hidden;
+  color: #fff; padding: 20px 22px; margin-bottom: 18px;
+  font-family: 'Space Mono', monospace;
+}
+.section-banner .num { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; opacity: .85; }
+.section-banner .title { font-family: 'DM Serif Display', serif; font-size: 1.9rem; line-height: 1.2; }
+.bg-ink { background: var(--ink); }
+.bg-teal { background: var(--teal); }
+.bg-pink { background: var(--pink); }
+.bg-purple { background: var(--purple); }
+.bg-blue { background: var(--blue); }
+.bg-gold { background: var(--gold); }
+
+.intro { font-size: 1.05rem; margin-bottom: 18px; }
+
+/* ---------- Cards ---------- */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 14px 0 20px; }
+.card {
+  background: #fff; border: 2px solid var(--ink); padding: 16px;
+  cursor: default;
+}
+.card.link { cursor: pointer; transition: transform .15s, box-shadow .15s; }
+.card.link:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--ink); }
+.card .icon { font-size: 1.6rem; }
+.card .label { font-family: 'Space Mono', monospace; font-weight: 700; margin: 4px 0; }
+.card p { font-size: 0.9rem; margin: 0; }
+.card.teal { border-top: 6px solid var(--teal); }
+.card.pink { border-top: 6px solid var(--pink); }
+.card.blue { border-top: 6px solid var(--blue); }
+.card.gold { border-top: 6px solid var(--gold); }
+
+/* ---------- Boxes ---------- */
+.box { padding: 16px 18px; margin: 16px 0; border-left: 5px solid; background: #fff; }
+.box strong { font-family: 'Space Mono', monospace; }
+.box.pink { border-color: var(--pink); background: var(--pink-light); }
+.box.teal { border-color: var(--teal); background: var(--teal-light); }
+.box.blue { border-color: var(--blue); background: var(--blue-light); }
+.box.gold { border-color: var(--gold); background: var(--gold-light); }
+.box ul { margin: 6px 0 0 20px; }
+
+.example {
+  background: var(--ink); color: #fff; padding: 18px; margin: 16px 0;
+}
+.example .label { font-family: 'Space Mono', monospace; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; color: var(--pink); margin-bottom: 10px; }
+.example img { width: 100%; height: auto; display: block; border: 2px solid #fff; cursor: zoom-in; background: #333; min-height: 60px; }
+.example p { margin: 10px 0 0; font-size: 0.9rem; }
+
+.key {
+  font-family: 'Space Mono', monospace; font-size: 0.82rem;
+  background: #fff; border: 2px solid var(--ink); border-bottom-width: 4px;
+  padding: 1px 7px; white-space: nowrap;
+}
+.path {
+  font-family: 'Space Mono', monospace; font-size: 0.88rem;
+  background: var(--paper); border: 1px dashed var(--concrete); padding: 1px 6px;
 }
 
-.section-banner::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 100%;
+/* ---------- Accordion steps ---------- */
+.step { background: #fff; border: 2px solid var(--ink); margin-bottom: 10px; }
+.step-head {
+  width: 100%; display: flex; align-items: center; gap: 14px;
+  padding: 14px 16px; background: none; border: 0; cursor: pointer;
+  font-family: 'Space Mono', monospace; font-size: 0.95rem; font-weight: 700;
+  text-align: left; color: var(--ink);
 }
-
-.homework-banner {
-  background-color: var(--homework-banner);
-  border: 2px solid var(--homework);
-  color: var(--homework);
+.step-num {
+  width: 34px; height: 34px; flex-shrink: 0; color: #fff;
+  display: grid; place-items: center; font-size: 0.95rem;
 }
+.step-head .arrow { margin-left: auto; transition: transform .2s; }
+.step.open .arrow { transform: rotate(90deg); }
+.step-body { display: none; padding: 0 18px 16px 66px; }
+.step.open .step-body { display: block; }
+.step-body ol, .step-body ul { margin: 4px 0 10px 20px; }
+.step-body li { margin-bottom: 6px; }
+@media (max-width: 600px) { .step-body { padding-left: 18px; } }
 
-.homework-banner::before {
-  background-color: var(--homework);
+/* ---------- Checklist ---------- */
+.checklist { background: #fff; border: 2px solid var(--ink); padding: 16px 18px; margin: 20px 0; }
+.checklist h3 { margin-top: 0; }
+.checklist label {
+  display: flex; gap: 12px; align-items: flex-start; padding: 8px 0;
+  border-bottom: 1px dashed var(--warm-mid); cursor: pointer;
 }
+.checklist label:last-child { border-bottom: 0; }
+.checklist input { width: 22px; height: 22px; flex-shrink: 0; margin-top: 2px; cursor: pointer; }
+.checklist input:checked + span { text-decoration: line-through; color: var(--concrete); }
+.checklist.teal { border-top: 6px solid var(--teal); } .checklist.teal input { accent-color: var(--teal); }
+.checklist.pink { border-top: 6px solid var(--pink); } .checklist.pink input { accent-color: var(--pink); }
+.checklist.purple { border-top: 6px solid var(--purple); } .checklist.purple input { accent-color: var(--purple); }
+.checklist.blue { border-top: 6px solid var(--blue); } .checklist.blue input { accent-color: var(--blue); }
+.checklist.gold { border-top: 6px solid var(--gold); } .checklist.gold input { accent-color: var(--gold); }
 
-.inclass-banner {
-  background-color: var(--inclass-banner);
-  border: 2px solid var(--inclass);
-  color: var(--inclass);
+/* ---------- Reflection cards ---------- */
+.reflect { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 10px 0; }
+.reflect div { background: var(--blue-light); border: 2px solid var(--blue); padding: 12px; font-size: 0.9rem; }
+.reflect b { font-family: 'Space Mono', monospace; color: var(--blue); display: block; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block; font-family: 'Space Mono', monospace; font-weight: 700;
+  font-size: 0.88rem; padding: 12px 18px; border: 2px solid var(--ink);
+  background: #fff; color: var(--ink); cursor: pointer; text-decoration: none;
+  transition: transform .15s, box-shadow .15s;
 }
+.btn:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--ink); }
+.btn.blue { background: var(--blue); color: #fff; border-color: var(--blue); }
+.pager { display: flex; justify-content: space-between; gap: 10px; margin-top: 26px; flex-wrap: wrap; }
+.pager .btn.next { background: var(--ink); color: #fff; margin-left: auto; }
 
-.inclass-banner::before {
-  background-color: var(--inclass);
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed; inset: 0; background: rgba(0,0,0,.88);
+  display: none; align-items: center; justify-content: center; z-index: 100;
+  padding: 20px; cursor: zoom-out;
 }
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 100%; max-height: 90vh; border: 3px solid #fff; }
 
-.task2-banner {
-  background-color: #f5eef8;
-  border: 2px solid #9b59b6;
-  color: #9b59b6;
+footer { margin-top: 40px; font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--concrete); text-align: center; }
+/* ---------- Lesson extras ---------- */
+.card img, .thumbs img, .step-body img.zoom {
+  width: 100%; height: auto; display: block; border: 2px solid var(--ink);
+  cursor: zoom-in; background: var(--warm-mid); min-height: 60px; margin: 8px 0;
 }
+.card img { aspect-ratio: 4/3; object-fit: cover; }
+.step-body img.zoom { max-width: 460px; }
+.thumbs { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-top: 12px; }
+.thumbs figure { margin: 0; }
+.thumbs figcaption { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #ddd; }
+.example img.zoom { max-height: 520px; object-fit: contain; }
 
-.task2-banner::before {
-  background-color: #9b59b6;
+.video { border: 2px solid var(--ink); background: var(--ink); margin: 6px 0 18px; }
+.video .frame { position: relative; padding-bottom: 56.25%; }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video .cap { color: #fff; font-family: 'Space Mono', monospace; font-size: 0.85rem; padding: 8px 12px; }
+
+.keys { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 10px 0 20px; }
+.keys div { background: #fff; border: 2px solid var(--ink); padding: 12px; text-align: center; font-size: 0.88rem; }
+.keys .key { display: inline-block; margin-bottom: 6px; }
+
+/* Quiz */
+.q { background: #fff; border: 2px solid var(--ink); border-top: 6px solid var(--purple); padding: 16px 18px; margin-bottom: 14px; }
+.q .qt { font-family: 'Space Mono', monospace; font-weight: 700; margin-bottom: 10px; }
+.opts { display: grid; gap: 8px; }
+.opt {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem; text-align: left;
+  padding: 10px 14px; background: var(--paper); border: 2px solid var(--warm-mid); cursor: pointer; color: var(--ink);
 }
+.opt:hover { border-color: var(--purple); }
+.opt.right { background: #e3f4e6; border-color: #2e7d32; }
+.opt.wrong { background: #fdecec; border-color: #c62828; }
+.fb { font-family: 'Space Mono', monospace; font-size: 0.85rem; margin-top: 8px; min-height: 1.2em; }
+.score { font-family: 'Space Mono', monospace; font-weight: 700; color: var(--purple); }
 
-.quiz-banner {
-  background-color: var(--quiz-light);
-  border: 2px solid var(--quiz);
-  color: var(--quiz);
+.order { display: grid; gap: 8px; margin: 10px 0; }
+.order-item {
+  display: flex; align-items: center; gap: 10px; background: #fff;
+  border: 2px solid var(--ink); padding: 8px 10px;
 }
-
-.quiz-banner::before {
-  background-color: var(--quiz);
+.order-item .pos { font-family: 'Space Mono', monospace; font-weight: 700; color: var(--purple); width: 22px; }
+.order-item .txt { flex: 1; font-size: 0.92rem; }
+.order-item button {
+  width: 38px; height: 38px; font-size: 1rem; border: 2px solid var(--ink);
+  background: var(--paper); cursor: pointer;
 }
+.order-item button:disabled { opacity: .3; cursor: default; }
+.order-item.ok { border-color: #2e7d32; background: #e3f4e6; }
+.order-item.no { border-color: #c62828; background: #fdecec; }
+.btn.purple { background: var(--purple); color: #fff; border-color: var(--purple); }
+.btn.gold { background: var(--gold); color: #fff; border-color: var(--gold); }
+.file { font-family: 'Space Mono', monospace; font-size: 0.85rem; background: var(--paper); padding: 1px 6px; border: 1px dashed var(--concrete); word-break: break-all; }
+.checklist.ink { border-top: 6px solid var(--ink); } .checklist.ink input { accent-color: var(--ink); }
 
-.workflow-box {
-  background: #f8f8f8;
-  margin: 30px 0;
-  border-radius: 15px;
-  border: 3px solid var(--secondary);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  overflow: hidden;
-}
+/* Stuck? troubleshooting */
+.stuck { background: #fff; border: 2px solid var(--ink); margin: 20px 0; }
+.stuck .stuck-head { background: var(--ink); color: #fff; font-family: 'Space Mono', monospace; font-weight: 700; padding: 10px 16px; }
+.stuck .row { display: grid; grid-template-columns: 1fr 1.4fr; border-top: 1px dashed var(--warm-mid); }
+.stuck .row:first-of-type { border-top: 0; }
+.stuck .prob, .stuck .fix { padding: 10px 16px; font-size: 0.92rem; }
+.stuck .prob { font-weight: 600; background: var(--paper); }
+.stuck .prob::before { content: "✗ "; color: #c62828; }
+.stuck .fix::before { content: "→ "; color: var(--teal); font-weight: 700; }
+@media (max-width: 600px) { .stuck .row { grid-template-columns: 1fr; } }
 
-.workflow-header {
-  background: var(--secondary);
-  color: white;
-  padding: 12px 20px;
-  text-align: center;
-}
-
-.workflow-header h3 {
-  margin: 0;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.workflow-steps {
-  padding: 20px;
-}
-
-.step {
-  position: relative;
-  padding: 18px 18px 18px 50px;
-  background: white;
-  margin-bottom: 12px;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-.step:last-child {
-  margin-bottom: 0;
-}
-
-.step-number {
-  position: absolute;
-  left: -10px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  background: var(--primary);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-.step-title {
-  color: var(--primary);
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.step-content ul, .step-content ol {
-  margin-left: 20px;
-  margin-bottom: 10px;
-}
-
-.step-content li {
-  margin-bottom: 6px;
-}
-
-.info-box {
-  background: #f8f9fa;
-  border-left: 5px solid var(--secondary);
-  padding: 15px 20px;
-  margin: 20px 0;
-  border-radius: 0 8px 8px 0;
-}
-
-.info-box strong {
-  color: var(--secondary);
-}
-
-.info-box ul {
-  margin-left: 20px;
-  margin-top: 10px;
-  margin-bottom: 0;
-}
-
-.info-box li {
-  margin-bottom: 6px;
-}
-
-.important-notice {
-  margin: 20px 0; 
-  padding: 15px 20px; 
-  background: rgba(234, 55, 163, 0.15); 
-  border-left: 5px solid var(--primary); 
-  border-radius: 8px;
-}
-
-.important-notice strong {
-  color: var(--primary);
-}
-
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  margin: 20px 0;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.tip-box {
-  background: #fff3cd;
-  border: 1px solid #ffc107;
-  border-radius: 8px;
-  padding: 15px 20px;
-  margin: 20px 0;
-}
-
-.tip-box h4 {
-  color: #856404;
-  margin: 0 0 10px 0;
+/* ---------- Due banner ---------- */
+.due {
+  background: var(--ink); color: #fff;
+  font-family: 'Space Mono', monospace; font-weight: 700;
+  padding: 16px 20px; display: flex; gap: 14px; align-items: center;
   font-size: 1rem;
 }
+.due span { font-size: 1.5rem; }
 
-.tip-box ul {
-  margin: 0;
-  padding-left: 20px;
-}
+/* ---------- Save box ---------- */
+.save { background: var(--gold-light); border: 2px solid var(--gold); border-left-width: 8px; padding: 16px 20px; }
+.save .title { font-family: 'Space Mono', monospace; font-weight: 700; color: var(--gold); margin-bottom: 6px; }
+.save ul { margin-left: 20px; }
 
-.tip-box li {
-  margin-bottom: 6px;
+.checklist .head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'Space Mono', monospace; font-weight: 700; margin-bottom: 6px;
 }
+.checklist .count { font-size: 0.82rem; color: var(--gold); }
+.checklist label {
+  display: flex; gap: 12px; align-items: flex-start; padding: 8px 0;
+  border-bottom: 1px dashed var(--warm-mid); cursor: pointer;
+}
+.checklist label:last-of-type { border-bottom: 0; }
+.checklist input { width: 22px; height: 22px; flex-shrink: 0; margin-top: 2px; cursor: pointer; accent-color: var(--gold); }
+.checklist input:checked + span { text-decoration: line-through; color: var(--concrete); }
+.ready {
+  display: none; margin-top: 12px; padding: 10px 14px;
+  background: var(--gold); color: #fff; font-family: 'Space Mono', monospace; font-weight: 700;
+}
+.ready.show { display: block; }
 
-.checklist {
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 25px 0;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  border: 2px solid var(--secondary);
-}
 
-.checklist h3 {
-  color: var(--secondary);
-  margin-top: 0;
-  text-align: center;
-  margin-bottom: 15px;
-  border-bottom: 2px dashed var(--secondary);
-  padding-bottom: 10px;
-  font-size: 1.1rem;
-}
+.checklist .head { display:flex; justify-content:space-between; align-items:center; font-family:'Space Mono',monospace; font-weight:700; margin-bottom:6px; }
+.tutor { background: var(--purple-light); border: 2px dashed var(--purple); padding: 14px 18px; margin: 14px 0; }
+.tutor strong { font-family: 'Space Mono', monospace; color: var(--purple); }
+.compare { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:12px 0; }
+.compare > div { background:#fff; border:2px solid var(--ink); padding:14px 16px; }
+.compare .bad { border-top:6px solid #c62828; } .compare .good { border-top:6px solid #2e7d32; }
+.compare h3 { margin-top:0; }
+.compare ul { margin-left:18px; }
+@media (max-width:600px){ .compare{grid-template-columns:1fr;} }
+code.prompt { font-family:'Space Mono',monospace; background:var(--ink); color:#fff; padding:2px 8px; font-size:0.85rem; display:inline-block; margin-top:4px; }
+.game-item { background:#fff; border:2px solid var(--ink); margin-bottom:10px; }
+.game-item .gi-head { display:flex; gap:12px; align-items:flex-start; padding:12px 14px; }
+.game-item .gi-text { flex:1; font-size:0.95rem; }
+.game-item .gi-btns { display:flex; gap:6px; flex-shrink:0; }
+.game-item .gi-btns button { font-family:'Space Mono',monospace; font-size:0.78rem; font-weight:700; padding:6px 10px; border:2px solid var(--ink); background:var(--paper); cursor:pointer; }
+.game-item.done { border-color:#2e7d32; background:#eef8f0; }
+.game-item.done .gi-done { background:#2e7d32; color:#fff; border-color:#2e7d32; }
+.game-item .gi-body { display:none; padding:0 14px 14px; border-top:1px dashed var(--warm-mid); }
+.game-item.open .gi-body { display:block; }
+.game-item .gi-body img { max-width:520px; }
+.subtabs { display:flex; gap:8px; margin:10px 0 14px; flex-wrap:wrap; }
+.subtabs button { font-family:'Space Mono',monospace; font-weight:700; font-size:0.85rem; padding:10px 14px; border:2px solid var(--ink); background:#fff; cursor:pointer; }
+.subtabs button.on { background:var(--teal); color:#fff; border-color:var(--teal); }
+.celebrate { display:none; background:var(--gold); color:#fff; font-family:'Space Mono',monospace; font-weight:700; padding:10px 14px; margin-top:8px; }
+.celebrate.show { display:block; }
+.ref-links { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; }
+.ref-links a { display:block; background:#fff; border:2px solid var(--ink); padding:12px; color:var(--ink); text-decoration:none; font-size:0.88rem; }
+.ref-links a:hover { box-shadow:4px 4px 0 var(--ink); transform:translate(-2px,-2px); }
+.ref-links b { font-family:'Space Mono',monospace; display:block; color:var(--teal); }
+.ref-links small { color:var(--concrete); font-family:'Space Mono',monospace; font-size:0.72rem; }
+.print-btn { position:fixed; right:16px; bottom:16px; width:46px; height:46px; border:2px solid var(--ink); background:#fff; font-size:1.2rem; cursor:pointer; }
+@media print { .print-btn, nav, .pager, .progress-wrap { display:none !important; } .section { display:block !important; } }
 
-.checklist-item {
-  margin-bottom: 12px;
-  display: flex;
-  align-items: flex-start;
-}
 
-.checklist-checkbox {
-  width: 22px;
-  height: 22px;
-  border: 2px solid var(--secondary);
-  border-radius: 5px;
-  margin-right: 12px;
-  flex-shrink: 0;
-  position: relative;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
+/* ---------- Term 3 additions ---------- */
+.reflect div { line-height: 1.5; }
+.arc { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); border:2px solid var(--ink); margin: 0 0 20px; font-family:'Space Mono',monospace; font-size:0.8rem; }
+.arc div { padding:10px 12px; background:#fff; border-right:2px solid var(--ink); }
+.arc div:last-child { border-right:0; }
+.arc div.here { background:var(--ink); color:#fff; }
+.arc b { display:block; font-size:0.7rem; letter-spacing:1px; color:var(--pink); }
+.flow { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:12px 0 20px; font-family:'Space Mono',monospace; font-size:0.85rem; }
+.flow span.f { background:#fff; border:2px solid var(--ink); padding:8px 12px; }
+.flow span.a { color:var(--pink); font-weight:700; }
+.pair { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+@media (max-width:600px){ .pair{grid-template-columns:1fr;} }
+.pair figure { margin:0; }
+.pair figcaption, .thumbs figcaption { font-family:'Space Mono',monospace; font-size:0.78rem; color:#ddd; margin-top:4px; }
+.guide { background:#fff; border:2px solid var(--ink); padding:14px; margin:12px 0; overflow-x:auto; }
+.guide svg { display:block; max-width:100%; height:auto; }
+.time { display:inline-block; font-family:'Space Mono',monospace; font-size:0.75rem; font-weight:700; background:var(--ink); color:#fff; padding:2px 8px; margin-left:6px; vertical-align:middle; }
+.section-banner .title { word-break: break-word; }
+img { max-width:100%; }
+.upload { background:#fff; border:3px dashed var(--gold); padding:20px; text-align:center; margin:18px 0; }
+.upload .cards { text-align:left; }
+.card.purple { border-top: 6px solid var(--purple); }
 
-.checklist-checkbox:hover {
-  background: var(--secondary-light);
-}
-
-.checklist-checkbox.checked::after {
-  content: "✓";
-  position: absolute;
-  color: var(--secondary);
-  font-size: 16px;
-  top: -2px;
-  left: 3px;
-  font-weight: bold;
-}
-
-.checklist-text {
-  flex-grow: 1;
-}
-
-.checklist-label {
-  font-weight: bold;
-  color: var(--secondary);
-  font-size: 0.95rem;
-}
-
-.shortcut {
-  display: inline-block;
-  padding: 2px 8px;
-  background: #f2f2f2;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-family: monospace;
-  font-size: 0.9em;
-  margin: 0 2px;
-}
-
-.examples-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin: 25px 0;
-}
-
-.example-card {
-  background: white;
-  border: 2px solid #eee;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
-}
-
-.example-card:hover {
-  border-color: var(--secondary);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  transform: translateY(-3px);
-}
-
-.example-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  background: #f5f5f5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 0.9rem;
-}
-
-.example-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.example-caption {
-  padding: 15px;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #666;
-  background: #fafafa;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.9);
-  overflow: auto;
-}
-
-.modal-content {
-  margin: auto;
-  display: block;
-  max-width: 90%;
-  max-height: 90%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 3px solid white;
-  border-radius: 5px;
-}
-
-.close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.close:hover {
-  color: #bbb;
-}
-
-.clickable-image {
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  border-radius: 8px;
-}
-
-.clickable-image:hover {
-  transform: scale(1.02);
-}
-
-.print-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: var(--secondary);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  font-size: 22px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.print-button:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-@media print {
-  .print-button, .nav-buttons, .main-navigation, .progress-bar-container {
-    display: none;
-  }
-  
-  body {
-    background: white;
-  }
-  
-  .container {
-    box-shadow: none;
-    border: none;
-    padding: 0;
-    max-width: 100%;
-  }
-  
-  .content-section {
-    display: block !important;
-    page-break-before: always;
-  }
-}
-
-footer {
-  text-align: center;
-  margin-top: 2.5rem;
-  padding-top: 1.5rem;
-  color: #777;
-  font-size: 0.85rem;
-  border-top: 1px dashed var(--primary);
-}
 </style>
 </head>
 <body>
-
-<div class="container">
-  <h1>🎨 Print Making with Fun Foam</h1>
-  <p style="text-align: center; font-size: 1.05rem; color: #666;">From Physical Print to Digital Design</p>
-
-  <!-- What You Will Learn -->
-  <div style="background: #f5f5f5; padding: 18px; border-radius: 10px; margin-bottom: 25px; border: 2px dashed #666;">
-    <h3 style="text-align: center; margin-top: 0; color: #333; font-size: 1.1rem;">What You Will Learn</h3>
-    <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 12px;">
-      <div style="flex: 1; min-width: 140px; background: var(--homework-banner); padding: 12px; border-radius: 8px; border-left: 4px solid var(--homework);">
-        <h4 style="margin: 0 0 4px 0; color: var(--homework); font-size: 0.9rem;">HOMEWORK</h4>
-        <p style="margin: 0; font-size: 0.85rem;">Make foam stamp prints</p>
-      </div>
-      <div style="flex: 1; min-width: 140px; background: var(--inclass-banner); padding: 12px; border-radius: 8px; border-left: 4px solid var(--inclass);">
-        <h4 style="margin: 0 0 4px 0; color: var(--inclass); font-size: 0.9rem;">TASK 1</h4>
-        <p style="margin: 0; font-size: 0.85rem;">Edit in Photoshop</p>
-      </div>
-      <div style="flex: 1; min-width: 140px; background: #f5eef8; padding: 12px; border-radius: 8px; border-left: 4px solid #9b59b6;">
-        <h4 style="margin: 0 0 4px 0; color: #9b59b6; font-size: 0.9rem;">TASK 2</h4>
-        <p style="margin: 0; font-size: 0.85rem;">Make research page</p>
-      </div>
-      <div style="flex: 1; min-width: 140px; background: var(--quiz-light); padding: 12px; border-radius: 8px; border-left: 4px solid var(--quiz);">
-        <h4 style="margin: 0 0 4px 0; color: var(--quiz); font-size: 0.9rem;">TASK 3</h4>
-        <p style="margin: 0; font-size: 0.85rem;">Save progress</p>
-      </div>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Fashion Design · Term 3 · Week 3</div>
+      <h1>Print Making with<br><em>Fun Foam</em></h1>
     </div>
+    <div class="meta"><strong>2 tasks ↓</strong>then report &amp; submit</div>
+  </header>
+  <div class="progress-wrap">
+    <div class="progress-label"><span>Your progress</span><span id="progText">0%</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
   </div>
+  <nav class="nav-block" id="nav">
+    <button class="nav-btn active" data-c="ink" data-target="overview">Overview<small>Start here</small></button>
+    <button class="nav-btn" data-c="pink" data-target="homework">Homework<small>Make prints</small></button>
+    <button class="nav-btn" data-c="teal" data-target="task1">Task 1<small>Edit in Photoshop</small></button>
+    <button class="nav-btn" data-c="purple" data-target="task2">Task 2<small>Research page</small></button>
+    <button class="nav-btn" data-c="blue" data-target="report">Report<small>Document 📝</small></button>
+    <button class="nav-btn" data-c="gold" data-target="submit">Submit<small>Padlet 📤</small></button>
+  </nav>
+  <div class="rule"></div>
 
-  <!-- Progress bar -->
-  <div class="progress-bar-container">
-    <div class="progress-bar" id="progressBar"></div>
+  <section class="section active" id="overview">
+    <div class="section-banner bg-ink">
+      <div class="num">Overview</div>
+      <div class="title">🎨 From Physical Print to Digital Design</div>
+    </div>
+    <p class="intro">Make prints with <strong>fun foam</strong>.<br>Then edit them in Photoshop for your portfolio.</p>
+    <h2>Why fun foam printing?</h2>
+    <div class="cards">
+      <div class="card pink"><div class="icon">🧽</div><div class="label">Unique texture</div><p>You cannot get it digitally.</p></div>
+      <div class="card teal"><div class="icon">🎨</div><div class="label">Easy to try</div><p>Many colours and patterns.</p></div>
+      <div class="card pink"><div class="icon">🔗</div><div class="label">Connects</div><p>Handmade work + digital design.</p></div>
+      <div class="card teal"><div class="icon">✨</div><div class="label">Professional</div><p>Looks great in your portfolio.</p></div>
+    </div>
+    <h2>The process</h2>
+    <div class="flow"><span class="f">✂️ Cut &amp; draw on foam</span><span class="a">→</span><span class="f">🎨 Ink &amp; print</span><span class="a">→</span><span class="f">📤 Scan</span><span class="a">→</span><span class="f">💻 Edit in Photoshop</span></div>
+    <h2>Student examples</h2>
+    <div class="example">
+      <div class="label">Foam prints in A3 research pages</div>
+      <div class="thumbs">
+        <figure><img class="zoom" src="example-foam-print-1.jpg" alt="Liana" loading="lazy" onerror="this.style.display='none'"><figcaption>Liana</figcaption></figure>
+        <figure><img class="zoom" src="example-foam-print-2.jpg" alt="Pritika" loading="lazy" onerror="this.style.display='none'"><figcaption>Pritika</figcaption></figure>
+        <figure><img class="zoom" src="example-foam-print-3.jpg" alt="Yasemin" loading="lazy" onerror="this.style.display='none'"><figcaption>Yasemin</figcaption></figure>
+      </div>
+    </div>
+    <h2>Today</h2>
+    <div class="cards">
+      <div class="card pink link" data-goto="homework"><div class="icon">🧽</div><div class="label">Homework</div><p>Make your foam prints.</p></div>
+      <div class="card teal link" data-goto="task1"><div class="icon">💻</div><div class="label">Task 1</div><p>Edit your print in Photoshop.</p></div>
+      <div class="card purple link" data-goto="task2"><div class="icon">🖼️</div><div class="label">Task 2</div><p>Build an A3 research page.</p></div>
+      <div class="card blue link" data-goto="report"><div class="icon">📝</div><div class="label">Report + Submit</div><p>Reflect, then upload to Padlet.</p></div>
+    </div>
+    <div class="pager">
+      
+      <button class="btn next" data-goto="homework">Next: Homework →</button>
+    </div>
+  </section>
+
+  <section class="section" id="homework">
+    <div class="section-banner bg-pink">
+      <div class="num">Homework · before class</div>
+      <div class="title">🧽 Make Your Foam Stamp Prints</div>
+    </div>
+    <p class="intro">Do this <strong>before class</strong>.<br>The video shows how to make your stamp.</p>
+    <div class="video">
+      <div class="frame"><iframe src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=751733ec-84ed-4f95-a6a2-b2c100986a92" allowfullscreen allow="autoplay"></iframe></div>
+      <div class="cap">▶ Watch: make your foam stamp</div>
+    </div>
+    <div class="step open">
+      <button class="step-head"><span class="step-num bg-pink">1</span>Prepare the foam<span class="arrow">▶</span></button>
+      <div class="step-body">
+<ul><li>Cut the foam to the size you want</li><li>Clean off any dust</li></ul>
+      </div>
+    </div>
+    <div class="step">
+      <button class="step-head"><span class="step-num bg-pink">2</span>Draw your design<span class="arrow">▶</span></button>
+      <div class="step-body">
+<ul><li>Use a <strong>ballpoint pen</strong></li><li>Press <strong>hard</strong> to make lines in the foam</li></ul>
+        <div class="cards"><div class="card pink"><div class="label">Lines you draw</div><p>NO ink → they stay <strong>white</strong></p></div><div class="card teal"><div class="label">Flat parts</div><p>Ink → they print in <strong>colour</strong></p></div></div>
+        <div class="box gold"><strong>💡 Tips</strong><ul><li>Press hard so the lines are deep</li><li>Simple designs work best</li></ul></div>
+      </div>
+    </div>
+    <div class="step">
+      <button class="step-head"><span class="step-num bg-pink">3</span>Add ink<span class="arrow">▶</span></button>
+      <div class="step-body">
+<ul><li>Press the ink pad onto the foam</li><li>All the flat parts need ink</li><li>The lines you drew should have no ink</li></ul>
+      </div>
+    </div>
+    <div class="step">
+      <button class="step-head"><span class="step-num bg-pink">4</span>Print<span class="arrow">▶</span></button>
+      <div class="step-body">
+<ul><li>Put the foam <strong>face down</strong> on paper</li><li>Press evenly on the back</li><li>Lift up to see your print</li></ul>
+      </div>
+    </div>
+    <div class="step">
+      <button class="step-head"><span class="step-num bg-pink">5</span>Experiment<span class="arrow">▶</span></button>
+      <div class="step-body">
+<p>Make <strong>at least 3 different prints</strong>. Try:</p><ul><li>Different patterns</li><li>Different colours</li><li>Printing on top of each other (layering)</li></ul>
+      </div>
+    </div>
+    <h2>Examples of good prints</h2>
+    <div class="example">
+      <div class="label">Homework examples · Manuela</div>
+      <div class="pair">
+        <figure><img class="zoom" src="hw-example-1.jpg" alt="Clear pattern, good ink" loading="lazy" onerror="this.style.display='none'"><figcaption>Clear pattern, good ink</figcaption></figure>
+        <figure><img class="zoom" src="hw-example-2.jpg" alt="Different colours" loading="lazy" onerror="this.style.display='none'"><figcaption>Different colours</figcaption></figure>
+      </div>
+    </div>
+  <div class="checklist pink" id="ck-hw">
+    <div class="head"><span>Homework checklist</span><span class="count">0 / 5</span></div>
+    <label><input type="checkbox"><span>Cut and prepared the foam</span></label>
+    <label><input type="checkbox"><span>Drew my design with a ballpoint pen</span></label>
+    <label><input type="checkbox"><span>Made at least 3 prints</span></label>
+    <label><input type="checkbox"><span>Tried different colours or layering</span></label>
+    <label><input type="checkbox"><span>Scanned my prints (or will scan in class)</span></label>
   </div>
+    <div class="pager">
+      <button class="btn" data-goto="overview">← Overview</button>
+      <button class="btn next" data-goto="task1">Next: Task 1 →</button>
+    </div>
+  </section>
 
-  <!-- Navigation -->
-  <div class="main-navigation">
-    <div class="nav-block nav-overview" data-section="overview">
-      <h3>Overview</h3>
-      <p>Introduction</p>
+  <section class="section" id="task1">
+    <div class="section-banner bg-teal">
+      <div class="num">Task 1</div>
+      <div class="title">💻 Edit Your Print in Photoshop</div>
     </div>
-    <div class="nav-block nav-homework" data-section="homework">
-      <h3>Homework</h3>
-      <p>Make Prints</p>
+    <p class="intro">Clean your scanned print.<br>Remove the white paper. Keep only the print.</p>
+    <div class="video">
+      <div class="frame"><iframe src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=359ea390-f80a-4bc0-9646-b2c10099ee3b" allowfullscreen allow="autoplay"></iframe></div>
+      <div class="cap">▶ Watch first, then follow the steps</div>
     </div>
-    <div class="nav-block nav-task1" data-section="task1">
-      <h3>Task 1</h3>
-      <p>Edit in Photoshop</p>
+    <div class="step open">
+      <button class="step-head"><span class="step-num bg-teal">1</span>Open your scan<span class="arrow">▶</span></button>
+      <div class="step-body">
+<p><span class="path" translate="no">File › Open</span> → find your scanned print</p>
+      </div>
     </div>
-    <div class="nav-block nav-task2" data-section="task2">
-      <h3>Task 2</h3>
-      <p>Research Page</p>
+    <div class="step">
+      <button class="step-head"><span class="step-num bg-teal">2</span>Make the background white<span class="arrow">▶</span></button>
+      <div class="step-body">
+<ul><li><span class="path" translate="no">Image › Adjustments › Levels</span></li><li>Move the <strong>white slider</strong> to the left</li><li>The grey paper turns white</li></ul>
+      </div>
     </div>
-    <div class="nav-block nav-task3" data-section="task3">
-      <h3>Task 3</h3>
-      <p>Save Progress</p>
+    <div class="step">
+      <button class="step-head"><span class="step-num bg-teal">3</span>Remove the white areas<span class="arrow">▶</span></button>
+      <div class="step-body">
+<ol>
+          <li>Unlock the layer: in the <strong>Layers</strong> panel, click the 🔒 on the <strong translate="no">Background</strong> layer</li>
+          <li>Choose the <strong translate="no">Magic Wand Tool</strong> (<span class="key" translate="no">W</span>)</li>
+          <li>Click on a <strong>white</strong> area</li>
+          <li><span class="path" translate="no">Select › Similar</span> — now all the white is selected</li>
+          <li>Press <span class="key" translate="no">Delete</span> on your keyboard</li>
+          <li><span class="path" translate="no">Select › Deselect</span> <span class="key" translate="no">Ctrl</span> + <span class="key" translate="no">D</span> (Mac: <span class="key" translate="no">Cmd</span> + <span class="key" translate="no">D</span>)</li>
+        </ol>
+        <div class="box teal"><strong>Why?</strong><p style="margin:6px 0 0">Now only your print is left. You can put it on <strong>any</strong> background.</p></div>
+      </div>
     </div>
+    <div class="step">
+      <button class="step-head"><span class="step-num bg-teal">4</span>Clean up<span class="arrow">▶</span></button>
+      <div class="step-body">
+<ul><li>Use the <strong translate="no">Eraser Tool</strong> (<span class="key" translate="no">E</span>)</li><li>Remove dust, dirt or unwanted marks</li></ul>
+      </div>
+    </div>
+    <div class="step">
+      <button class="step-head"><span class="step-num bg-teal">5</span>Try effects (optional)<span class="arrow">▶</span></button>
+      <div class="step-body">
+<ul><li><strong>Change colour:</strong> <span class="path" translate="no">Image › Adjustments › Hue/Saturation</span></li><li><strong>Copy the layer:</strong> <span class="path" translate="no">Layer › Duplicate Layer</span> <span class="key" translate="no">Ctrl</span> + <span class="key" translate="no">J</span> (Mac: <span class="key" translate="no">Cmd</span> + <span class="key" translate="no">J</span>)</li><li><strong>Add a shadow:</strong> <span class="path" translate="no">Layer › Layer Style › Drop Shadow</span></li></ul>
+      </div>
+    </div>
+    <div class="step">
+      <button class="step-head"><span class="step-num bg-teal">6</span>Save your print<span class="arrow">▶</span></button>
+      <div class="step-body">
+<ul><li>Save with transparency: <span class="path" translate="no">File › Save As…</span> → <strong>PSD</strong> or <strong>PNG</strong></li><li>Take a <strong>screenshot</strong> of your clean print</li></ul>
+      </div>
+    </div>
+    <h2>Before and after</h2>
+    <div class="example">
+      <div class="label">Task 1 · Anna</div>
+      <div class="pair">
+        <figure><img class="zoom" src="task1-before.jpg" alt="Before: scan with grey background" loading="lazy" onerror="this.style.display='none'"><figcaption>Before: scan with grey background</figcaption></figure>
+        <figure><img class="zoom" src="task1-after.jpg" alt="After: clean print, no background" loading="lazy" onerror="this.style.display='none'"><figcaption>After: clean print, no background</figcaption></figure>
+      </div>
+    </div>
+  <div class="checklist teal" id="ck-t1">
+    <div class="head"><span>Task 1 checklist</span><span class="count">0 / 6</span></div>
+    <label><input type="checkbox"><span>Opened my scan in Photoshop</span></label>
+    <label><input type="checkbox"><span>Used Levels to make the background white</span></label>
+    <label><input type="checkbox"><span>Removed the white background</span></label>
+    <label><input type="checkbox"><span>Cleaned up any marks</span></label>
+    <label><input type="checkbox"><span>Saved my file</span></label>
+    <label><input type="checkbox"><span>Screenshot taken</span></label>
   </div>
-
-  <!-- ==================== OVERVIEW ==================== -->
-  <div id="overview" class="content-section active">
-    
-    <h2>What is This Workshop?</h2>
-    <p>You will make <strong>prints using fun foam</strong>. Then you will edit them on the computer using Photoshop. You can use these prints in your portfolio.</p>
-    
-    <div class="info-box">
-      <strong>Why use fun foam printing?</strong>
-      <ul>
-        <li>Makes unique textures you cannot get digitally</li>
-        <li>Easy to try different colours and patterns</li>
-        <li>Connects your handmade work with digital design</li>
-        <li>Looks professional in your portfolio</li>
-      </ul>
+    <div class="pager">
+      <button class="btn" data-goto="homework">← Homework</button>
+      <button class="btn next" data-goto="task2">Next: Task 2 →</button>
     </div>
+  </section>
 
-    <h2>The Process</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin: 20px 0;">
-      <div style="background: white; border: 2px solid var(--primary); border-radius: 10px; padding: 15px; text-align: center;">
-        <div style="font-size: 2rem; margin-bottom: 8px;">✂️</div>
-        <strong>Step 1</strong>
-        <p style="margin: 8px 0 0 0; font-size: 0.9rem;">Cut and draw on foam</p>
-      </div>
-      <div style="background: white; border: 2px solid var(--homework); border-radius: 10px; padding: 15px; text-align: center;">
-        <div style="font-size: 2rem; margin-bottom: 8px;">🎨</div>
-        <strong>Step 2</strong>
-        <p style="margin: 8px 0 0 0; font-size: 0.9rem;">Add ink and print</p>
-      </div>
-      <div style="background: white; border: 2px solid var(--secondary); border-radius: 10px; padding: 15px; text-align: center;">
-        <div style="font-size: 2rem; margin-bottom: 8px;">📤</div>
-        <strong>Step 3</strong>
-        <p style="margin: 8px 0 0 0; font-size: 0.9rem;">Scan your print</p>
-      </div>
-      <div style="background: white; border: 2px solid #9b59b6; border-radius: 10px; padding: 15px; text-align: center;">
-        <div style="font-size: 2rem; margin-bottom: 8px;">💻</div>
-        <strong>Step 4</strong>
-        <p style="margin: 8px 0 0 0; font-size: 0.9rem;">Edit in Photoshop</p>
+  <section class="section" id="task2">
+    <div class="section-banner bg-purple">
+      <div class="num">Task 2</div>
+      <div class="title">🖼️ Build a Research Page</div>
+    </div>
+    <p class="intro">Put your print on an <strong>A3 research page</strong>.<br>Add notes about your work.</p>
+    <div class="step open">
+      <button class="step-head"><span class="step-num bg-purple">1</span>Open your A3 scan sheet<span class="arrow">▶</span></button>
+      <div class="step-body">
+<p><span class="path" translate="no">File › Open</span> → your A3 scan sheet. This is your background.</p>
       </div>
     </div>
-
-    <h2>Student Examples</h2>
-    <p>Here are examples of foam prints used in research pages:</p>
-    
-    <div class="examples-grid">
-      <div class="example-card">
-        <div class="example-image">
-          <img src="example-foam-print-1.jpg" alt="Student example 1" class="clickable-image" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='[Add example image 1]';">
-        </div>
-        <div class="example-caption">Example/Liana: Foam print integrated into A3 sheet</div>
-      </div>
-      <div class="example-card">
-        <div class="example-image">
-          <img src="example-foam-print-2.jpg" alt="Student example 2" class="clickable-image" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='[Add example image 2]';">
-        </div>
-        <div class="example-caption">Example/Pritika: Foam print integrated into A3 sheet</div>
-      </div>
-      <div class="example-card">
-        <div class="example-image">
-          <img src="example-foam-print-3.jpg" alt="Student example 3" class="clickable-image" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='[Add example image 3]';">
-        </div>
-        <div class="example-caption">Example/Yasemin: Foam print integrated into A3 sheet</div>
+    <div class="step">
+      <button class="step-head"><span class="step-num bg-purple">2</span>Add your print<span class="arrow">▶</span></button>
+      <div class="step-body">
+<ol><li>Open your clean print from Task 1</li><li>Copy: <span class="path" translate="no">Edit › Copy</span> <span class="key" translate="no">Ctrl</span> + <span class="key" translate="no">C</span> (Mac: <span class="key" translate="no">Cmd</span> + <span class="key" translate="no">C</span>)</li><li>Go to your A3 sheet. Paste: <span class="path" translate="no">Edit › Paste</span> <span class="key" translate="no">Ctrl</span> + <span class="key" translate="no">V</span> (Mac: <span class="key" translate="no">Cmd</span> + <span class="key" translate="no">V</span>)</li><li>Move and resize: <span class="path" translate="no">Edit › Free Transform</span> <span class="key" translate="no">Ctrl</span> + <span class="key" translate="no">T</span> (Mac: <span class="key" translate="no">Cmd</span> + <span class="key" translate="no">T</span>)</li></ol>
       </div>
     </div>
-
-    <div class="nav-buttons">
-      <button class="nav-btn prev-btn" disabled>Previous</button>
-      <button class="nav-btn next-btn" onclick="goToSection('homework')">Next: Homework</button>
+    <div class="step">
+      <button class="step-head"><span class="step-num bg-purple">3</span>Use blending modes<span class="arrow">▶</span></button>
+      <div class="step-body">
+<ul><li>Click your print layer</li><li>In the <strong>Layers</strong> panel, find the menu that says <strong translate="no">Normal</strong></li><li>Choose <strong translate="no">Multiply</strong> — white disappears</li><li>Try other modes too</li></ul>
+      </div>
     </div>
+    <div class="step">
+      <button class="step-head"><span class="step-num bg-purple">4</span>Add annotation<span class="arrow">▶</span></button>
+      <div class="step-body">
+<p>Your page needs:</p><ul><li><strong>Subheadings</strong> — a title for each part</li><li><strong>Annotation</strong> — notes about your process and ideas</li><li><strong>References</strong> — artist names or image sources</li></ul>
+      </div>
+    </div>
+    <div class="step">
+      <button class="step-head"><span class="step-num bg-purple">5</span>Experiment and save<span class="arrow">▶</span></button>
+      <div class="step-body">
+<ul><li>Try different layouts</li><li>Add more prints or images</li><li>Play with colours and effects</li><li>Save: <span class="path" translate="no">File › Export › Export As…</span> → <strong>JPG</strong></li></ul>
+      </div>
+    </div>
+    <div class="box teal"><strong>✅ Your research page includes</strong><ul><li>Your foam prints — edited and clean</li><li>Subheadings</li><li>Annotation — what you did and why</li><li>References</li></ul></div>
+    <h2>Research page examples</h2>
+    <div class="example">
+      <div class="label">A3 sheets combined with prints</div>
+      <div class="thumbs">
+        <figure><img class="zoom" src="task2-example-1.jpg" alt="Linnie" loading="lazy" onerror="this.style.display='none'"><figcaption>Linnie</figcaption></figure>
+        <figure><img class="zoom" src="task2-example-2.jpg" alt="Tong" loading="lazy" onerror="this.style.display='none'"><figcaption>Tong</figcaption></figure>
+        <figure><img class="zoom" src="task2-example-3.jpg" alt="Zeba" loading="lazy" onerror="this.style.display='none'"><figcaption>Zeba</figcaption></figure>
+      </div>
+    </div>
+  <div class="checklist purple" id="ck-t2">
+    <div class="head"><span>Task 2 checklist</span><span class="count">0 / 6</span></div>
+    <label><input type="checkbox"><span>Added my print to the A3 sheet</span></label>
+    <label><input type="checkbox"><span>Tried blending modes</span></label>
+    <label><input type="checkbox"><span>Added subheadings</span></label>
+    <label><input type="checkbox"><span>Added annotation</span></label>
+    <label><input type="checkbox"><span>Added references</span></label>
+    <label><input type="checkbox"><span>Saved as JPEG</span></label>
   </div>
+    <div class="pager">
+      <button class="btn" data-goto="task1">← Task 1</button>
+      <button class="btn next" data-goto="report">Next: Progress Report →</button>
+    </div>
+  </section>
 
-  <!-- ==================== HOMEWORK ==================== -->
-  <div id="homework" class="content-section">
-    <div class="section-banner homework-banner">
-      HOMEWORK: Make Your Foam Stamp Prints
+  <section class="section" id="report">
+    <div class="section-banner bg-blue">
+      <div class="num">Progress Report</div>
+      <div class="title">📝 Document &amp; Reflect</div>
+    </div>
+    <p class="intro">Show how you learned today.<br>Use the Progress Tool. It makes a PDF.</p>
+    <div class="box blue">
+      <strong>Why?</strong>
+      <p style="margin:6px 0 0">Your teacher sees <strong>how</strong> you worked, not only the final page.<br>Your reflection is part of your assessment.</p>
     </div>
 
-    <p style="text-align: center; margin-bottom: 25px;">
-      Do this <strong>before class</strong>.
-    </p>
-
-    <div style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 10px; padding: 20px; margin: 25px 0;">
-      <h4 style="color: #856404; margin: 0 0 12px 0;">📺 Watch This Video First</h4>
-      <p style="margin-bottom: 15px;">This video shows you how to make your foam stamp:</p>
-      <div class="video-container">
-        <iframe src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=751733ec-84ed-4f95-a6a2-b2c100986a92" frameborder="0" allowfullscreen></iframe>
+    <div class="step open">
+      <button class="step-head"><span class="step-num bg-blue">1</span>Open the Progress Tool<span class="arrow">▶</span></button>
+      <div class="step-body">
+<p><a class="btn blue" href="https://hsstokes.github.io/Progress_Documentation/" target="_blank" rel="noopener">Open Progress Tool ↗</a></p><p>It opens in a new tab. Keep this page open too.</p>
       </div>
     </div>
-
-    <div class="workflow-box" style="border-color: var(--homework);">
-      <div class="workflow-header" style="background: var(--homework);">
-        <h3>How to Make Your Print</h3>
-      </div>
-      <div class="workflow-steps">
-        <div class="step">
-          <div class="step-number" style="background: var(--homework);">1</div>
-          <div class="step-title" style="color: var(--homework);">Prepare the Foam</div>
-          <div class="step-content">
-            <ul>
-              <li>Cut the foam to the size you want</li>
-              <li>Clean it to remove any dust</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="step-number" style="background: var(--homework);">2</div>
-          <div class="step-title" style="color: var(--homework);">Draw Your Design</div>
-          <div class="step-content">
-            <ul>
-              <li>Use a <strong>ballpoint pen</strong></li>
-              <li>Press hard to make lines in the foam</li>
-              <li>The lines you draw will NOT have ink</li>
-              <li>The flat parts WILL have ink</li>
-            </ul>
-            <div class="tip-box">
-              <h4>💡 Tips</h4>
-              <ul>
-                <li>Press hard so the lines are deep</li>
-                <li>Simple designs work best</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="step-number" style="background: var(--homework);">3</div>
-          <div class="step-title" style="color: var(--homework);">Add Ink</div>
-          <div class="step-content">
-            <ul>
-              <li>Press the ink pad onto the foam</li>
-              <li>Make sure all the flat parts have ink</li>
-              <li>The lines you drew should have no ink</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="step-number" style="background: var(--homework);">4</div>
-          <div class="step-title" style="color: var(--homework);">Print</div>
-          <div class="step-content">
-            <ul>
-              <li>Put the foam <strong>face down</strong> on paper</li>
-              <li>Press down evenly on the back</li>
-              <li>Lift up to see your print</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="step-number" style="background: var(--homework);">5</div>
-          <div class="step-title" style="color: var(--homework);">Experiment</div>
-          <div class="step-content">
-            <p>Make <strong>at least 3 different prints</strong>. Try:</p>
-            <ul>
-              <li>Different patterns</li>
-              <li>Different colours</li>
-              <li>Printing on top of each other (layering)</li>
-            </ul>
-          </div>
-        </div>
+    <div class="step">
+      <button class="step-head"><span class="step-num bg-blue">2</span>Add your name and 2–3 images<span class="arrow">▶</span></button>
+      <div class="step-body">
+<ul><li>Type your <strong>name</strong></li><li>Upload <strong>2–3 images</strong>:</li></ul><ul><li>Your scan before editing, and your clean print (Task 1)</li><li>Your A3 research page (Task 2)</li></ul><ul><li>Add a short <strong>caption</strong> to each image</li></ul><p>Take a screenshot: Mac <span class="key" translate="no">Cmd</span> + <span class="key" translate="no">Shift</span> + <span class="key" translate="no">4</span> · Windows <span class="key" translate="no">Win</span> + <span class="key" translate="no">Shift</span> + <span class="key" translate="no">S</span></p>
       </div>
     </div>
-
-    <h2>Examples of Good Prints</h2>
-    <div class="examples-grid">
-      <div class="example-card">
-        <div class="example-image">
-          <img src="hw-example-1.jpg" alt="Homework example 1" class="clickable-image" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='[Add homework example 1]';">
+    <div class="step">
+      <button class="step-head"><span class="step-num bg-blue">3</span>Answer the 4 questions<span class="arrow">▶</span></button>
+      <div class="step-body">
+<div class="reflect">
+          <div><b>1 · Techniques</b>What tools and skills did you use?</div>
+          <div><b>2 · Challenges</b>What was difficult? How did you fix it?</div>
+          <div><b>3 · What worked</b>What are you happy with? Why?</div>
+          <div><b>4 · Next time</b>What will you do differently?</div>
         </div>
-        <div class="example-caption">Example: Clear pattern with good ink (Manuela)</div>
-      </div>
-      <div class="example-card">
-        <div class="example-image">
-          <img src="hw-example-2.jpg" alt="Homework example 2" class="clickable-image" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='[Add homework example 2]';">
-        </div>
-        <div class="example-caption">Example: Different colours (Manuela)</div>
+        <div class="box gold"><strong>💡 Useful phrases</strong><ul><li>I used … to …</li><li>This worked because …</li><li>This was difficult because …</li><li>Next time I will …</li></ul></div>
       </div>
     </div>
-
-    <div class="checklist">
-      <h3>Homework Checklist ✓</h3>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Cut and prepared foam</div>
-        </div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Drew design with ballpoint pen</div>
-        </div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Made at least 3 prints</div>
-        </div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Tried different colours or layering</div>
-        </div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Scanned prints (or will scan in class)</div>
-        </div>
+    <div class="step">
+      <button class="step-head"><span class="step-num bg-blue">4</span>Download the PDF<span class="arrow">▶</span></button>
+      <div class="step-body">
+<ol><li>Click <strong>Download Progress Report</strong></li><li>Save the PDF on your computer</li><li>Upload it in the <strong>Submit</strong> tab</li></ol>
       </div>
     </div>
-
-    <div class="nav-buttons">
-      <button class="nav-btn prev-btn" onclick="goToSection('overview')">Previous</button>
-      <button class="nav-btn next-btn" onclick="goToSection('task1')">Next: Task 1</button>
-    </div>
+  <div class="checklist blue" id="ck-report">
+    <div class="head"><span>Progress Report checklist</span><span class="count">0 / 4</span></div>
+    <label><input type="checkbox"><span>Name added</span></label>
+    <label><input type="checkbox"><span>2–3 images with captions</span></label>
+    <label><input type="checkbox"><span>4 questions answered</span></label>
+    <label><input type="checkbox"><span>PDF downloaded</span></label>
   </div>
-
-  <!-- ==================== TASK 1 ==================== -->
-  <div id="task1" class="content-section">
-    <div class="section-banner inclass-banner">
-      TASK 1: Edit Your Print in Photoshop
+    <div class="pager">
+      <button class="btn" data-goto="task2">← Task 2</button>
+      <button class="btn next" data-goto="submit">Next: Submit →</button>
     </div>
+  </section>
 
-    <p style="text-align: center; margin-bottom: 25px;">
-      Clean your scanned print and prepare it for your research page.
-    </p>
-
-    <div style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 10px; padding: 20px; margin: 25px 0;">
-      <h4 style="color: #856404; margin: 0 0 12px 0;">📺 Watch This Video</h4>
-      <p style="margin-bottom: 15px;">Follow along with these steps:</p>
-      <div class="video-container">
-        <iframe src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=359ea390-f80a-4bc0-9646-b2c10099ee3b" frameborder="0" allowfullscreen></iframe>
-      </div>
+  <section class="section" id="submit">
+    <div class="section-banner bg-gold">
+      <div class="num">Submit</div>
+      <div class="title">📤 Upload to Padlet</div>
     </div>
-
-    <div class="workflow-box">
-      <div class="workflow-header">
-        <h3>Photoshop Steps</h3>
+    <p class="intro">Upload <strong>3 things</strong> to Padlet.</p>
+    <div class="upload">
+      <div class="cards">
+        <div class="card gold"><div class="icon">🎨</div><div class="label">1 · Your prints</div><p>Photos of your foam prints</p></div>
+        <div class="card gold"><div class="icon">🖼️</div><div class="label">2 · Research page</div><p>Your A3 page (JPEG)</p></div>
+        <div class="card gold"><div class="icon">📝</div><div class="label">3 · Progress Report</div><p>Your PDF</p></div>
       </div>
-      <div class="workflow-steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <div class="step-title">Open Your Scan</div>
-          <div class="step-content">
-            <ul>
-              <li>Open Photoshop</li>
-              <li>Go to <span class="shortcut">File > Open</span></li>
-              <li>Find your scanned print</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="step-number">2</div>
-          <div class="step-title">Make the Background White</div>
-          <div class="step-content">
-            <ul>
-              <li>Go to <span class="shortcut">Image > Adjustments > Levels</span></li>
-              <li>Move the white slider to make the background white</li>
-              <li>This removes grey from the paper</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="step-number">3</div>
-          <div class="step-title">Remove White Areas</div>
-          <div class="step-content">
-            <ul>
-              <li>Use the <strong>Rectangular Marquee Tool</strong></li>
-              <li>Click on a white area</li>
-              <li>Go to <span class="shortcut">Select > Similar</span></li>
-              <li>Press <strong>Delete</strong> on your keyboard</li>
-              <li>Press <span class="shortcut">Ctrl + D</span> (or <span class="shortcut">Cmd + D</span> on Mac) to deselect</li>
-            </ul>
-            <div class="important-notice">
-              <strong>Why do this?</strong> Now only your print is left. The white background is gone. You can put your print on any background.
-            </div>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="step-number">4</div>
-          <div class="step-title">Clean Up</div>
-          <div class="step-content">
-            <ul>
-              <li>Use the <strong>Eraser Tool</strong> to remove unwanted marks</li>
-              <li>Clean any dust or dirt from the scan</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="step-number">5</div>
-          <div class="step-title">Try Effects (Optional)</div>
-          <div class="step-content">
-            <ul>
-              <li><strong>Change colour:</strong> Go to <span class="shortcut">Image > Adjustments > Hue/Saturation</span></li>
-              <li><strong>Copy layer:</strong> Press <span class="shortcut">Ctrl + J</span> (or <span class="shortcut">Cmd + J</span> on Mac)</li>
-              <li><strong>Add shadow:</strong> Go to <span class="shortcut">Layer > Layer Style > Drop Shadow</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <a class="btn gold" href="https://padlet.com/artslondon/digital-manipulations-through-printmakingwith-fun-foam-kyqtciy5nusv5xzg" target="_blank" rel="noopener">📤 Upload to Padlet ↗</a>
     </div>
-
-    <h2>Before and After Examples</h2>
-    <div class="examples-grid">
-      <div class="example-card">
-        <div class="example-image">
-          <img src="task1-before.jpg" alt="Before editing" class="clickable-image" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='[Add before example]';">
-        </div>
-        <div class="example-caption">Before/Anna: Scan with grey background</div>
-      </div>
-      <div class="example-card">
-        <div class="example-image">
-          <img src="task1-after.jpg" alt="After editing" class="clickable-image" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='[Add after example]';">
-        </div>
-        <div class="example-caption">After/Anna: Clean print, no background</div>
-      </div>
-    </div>
-
-    <div class="checklist">
-      <h3>Task 1 Checklist ✓</h3>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Opened scan in Photoshop</div>
-        </div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Adjusted levels (made background white)</div>
-        </div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Removed white background</div>
-        </div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Cleaned up any marks</div>
-        </div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Saved your file</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="nav-buttons">
-      <button class="nav-btn prev-btn" onclick="goToSection('homework')">Previous</button>
-      <button class="nav-btn next-btn" onclick="goToSection('task2')">Next: Task 2</button>
-    </div>
+  <div class="checklist gold" id="ck-sub">
+    <div class="head"><span>Submit checklist</span><span class="count">0 / 3</span></div>
+    <label><input type="checkbox"><span>Prints uploaded</span></label>
+    <label><input type="checkbox"><span>Research page uploaded</span></label>
+    <label><input type="checkbox"><span>Progress Report PDF uploaded</span></label>
+    <div class="ready">🎉 All done — great work!</div>
   </div>
-
-  <!-- ==================== TASK 2 ==================== -->
-  <div id="task2" class="content-section">
-    <div class="section-banner task2-banner">
-      TASK 2: Build a Research Page
+    <h2>What you learned</h2>
+    <div class="cards">
+      <div class="card pink"><div class="label">🧽 Foam stamps</div><p>Made and printed your own designs</p></div>
+      <div class="card teal"><div class="label">💻 Photoshop</div><p>Cleaned and edited your prints</p></div>
+      <div class="card teal"><div class="label">✂️ Backgrounds</div><p>Removed them so prints work anywhere</p></div>
+      <div class="card pink"><div class="label">🖼️ Research page</div><p>Built a page with annotation</p></div>
+      <div class="card blue"><div class="label">📝 Reflection</div><p>You explained how you learned</p></div>
     </div>
-
-    <p style="text-align: center; margin-bottom: 25px;">
-      Put your print into an A3 research page with annotation.
-    </p>
-
-    <div class="workflow-box" style="border-color: #9b59b6;">
-      <div class="workflow-header" style="background: #9b59b6;">
-        <h3>How to Make Your Research Page</h3>
-      </div>
-      <div class="workflow-steps">
-        <div class="step">
-          <div class="step-number" style="background: #9b59b6;">1</div>
-          <div class="step-title" style="color: #9b59b6;">Open Your A3 Scan Sheet</div>
-          <div class="step-content">
-            <ul>
-              <li>Open your A3 scan sheet in Photoshop</li>
-              <li>This will be your background</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="step-number" style="background: #9b59b6;">2</div>
-          <div class="step-title" style="color: #9b59b6;">Add Your Print</div>
-          <div class="step-content">
-            <ul>
-              <li>Open your edited print from Task 1</li>
-              <li>Copy it: <span class="shortcut">Ctrl + C</span> (or <span class="shortcut">Cmd + C</span> on Mac)</li>
-              <li>Paste it on your A3 sheet: <span class="shortcut">Ctrl + V</span> (or <span class="shortcut">Cmd + V</span> on Mac)</li>
-              <li>Move and resize it: <span class="shortcut">Ctrl + T</span> (or <span class="shortcut">Cmd + T</span> on Mac)</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="step-number" style="background: #9b59b6;">3</div>
-          <div class="step-title" style="color: #9b59b6;">Use Blending Modes</div>
-          <div class="step-content">
-            <ul>
-              <li>Click on your print layer</li>
-              <li>Find the blending mode dropdown (says "Normal")</li>
-              <li>Try <strong>Multiply</strong> — this makes white disappear</li>
-              <li>Try other modes to see what looks good</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="step-number" style="background: #9b59b6;">4</div>
-          <div class="step-title" style="color: #9b59b6;">Add Annotation</div>
-          <div class="step-content">
-            <p>Your research page needs:</p>
-            <ul>
-              <li><strong>Subheadings</strong> — titles for each section</li>
-              <li><strong>Annotation</strong> — notes about your process and ideas</li>
-              <li><strong>References</strong> — where you got inspiration from</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="step-number" style="background: #9b59b6;">5</div>
-          <div class="step-title" style="color: #9b59b6;">Experiment</div>
-          <div class="step-content">
-            <ul>
-              <li>Try different layouts</li>
-              <li>Add more prints or images</li>
-              <li>Play with colours and effects</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div class="pager">
+      <button class="btn" data-goto="report">← Progress Report</button>
+      <button class="btn next" data-goto="overview">Back to start →</button>
     </div>
+  </section>
 
-    <div class="info-box">
-      <strong>What to include on your research page:</strong>
-      <ul>
-        <li><strong>Your foam prints</strong> — edited and clean</li>
-        <li><strong>Subheadings</strong> — to organise your page</li>
-        <li><strong>Annotation</strong> — explain what you did and why</li>
-        <li><strong>References</strong> — artist names or image sources</li>
-      </ul>
-    </div>
-
-    <h2>Research Page Examples</h2>
-    <div class="examples-grid">
-      <div class="example-card">
-        <div class="example-image">
-          <img src="task2-example-1.jpg" alt="Research page example 1" class="clickable-image" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='[Add research page example 1]';">
-        </div>
-        <div class="example-caption">Example/Linnie: A3 sheet combined with print</div>
-      </div>
-      <div class="example-card">
-        <div class="example-image">
-          <img src="task2-example-2.jpg" alt="Research page example 2" class="clickable-image" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='[Add research page example 2]';">
-        </div>
-        <div class="example-caption">Example/Tong: A3 sheet combined with print</div>
-      </div>
-      <div class="example-card">
-        <div class="example-image">
-          <img src="task2-example-3.jpg" alt="Research page example 3" class="clickable-image" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='[Add research page example 3]';">
-        </div>
-        <div class="example-caption">Example/Zeba: A3 sheet combined with print</div>
-      </div>
-    </div>
-
-    <div class="checklist">
-      <h3>Task 2 Checklist ✓</h3>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Added print to A3 sheet</div>
-        </div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Tried blending modes</div>
-        </div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Added subheadings</div>
-        </div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Added annotation (notes about your work)</div>
-        </div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Added references</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="nav-buttons">
-      <button class="nav-btn prev-btn" onclick="goToSection('task1')">Previous</button>
-      <button class="nav-btn next-btn" onclick="goToSection('task3')">Next: Task 3</button>
-    </div>
-  </div>
-
-  <!-- ==================== TASK 3 ==================== -->
-  <div id="task3" class="content-section">
-    <div class="section-banner quiz-banner">
-      TASK 3: Save Your Progress
-    </div>
-
-    <p style="text-align: center; margin-bottom: 25px;">
-      Show what you learned and upload your work.
-    </p>
-
-    <div class="workflow-box" style="border-color: var(--quiz);">
-      <div class="workflow-header" style="background: var(--quiz);">
-        <h3>How to Save Your Progress</h3>
-      </div>
-      <div class="workflow-steps">
-        <div class="step">
-          <div class="step-number" style="background: var(--quiz);">1</div>
-          <div class="step-title" style="color: var(--quiz);">Open the Progress Tool</div>
-          <div class="step-content">
-            <a href="https://hsstokes.github.io/Progress_Documentation/" target="_blank" style="display: inline-block; background: var(--quiz); color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold;">Open Progress Tool →</a>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="step-number" style="background: var(--quiz);">2</div>
-          <div class="step-title" style="color: var(--quiz);">Take Screenshots</div>
-          <div class="step-content">
-            <p>Take pictures of your work:</p>
-            <ul>
-              <li><strong>Mac:</strong> <span class="shortcut">Cmd + Shift + 3</span></li>
-              <li><strong>Windows:</strong> <span class="shortcut">Windows + Shift + S</span></li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="step-number" style="background: var(--quiz);">3</div>
-          <div class="step-title" style="color: var(--quiz);">Write Notes</div>
-          <div class="step-content">
-            <p>Answer these questions:</p>
-            <ul>
-              <li>What did you make?</li>
-              <li>What was easy? What was hard?</li>
-              <li>What would you do differently next time?</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="step-number" style="background: var(--quiz);">4</div>
-          <div class="step-title" style="color: var(--quiz);">Download PDF</div>
-          <div class="step-content">
-            <p>Click "Download Progress Report" to save.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="checklist">
-      <h3>Task 3 Checklist ✓</h3>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Added screenshots</div>
-        </div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Wrote notes about your work</div>
-        </div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
-        <div class="checklist-text">
-          <div class="checklist-label">Downloaded PDF</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Submit -->
-    <h2>Upload Your Work</h2>
-
-    <div style="background: linear-gradient(135deg, var(--secondary-light) 0%, #fff 100%); padding: 25px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); margin: 25px 0; border: 3px solid var(--secondary);">
-      <h3 style="color: var(--secondary); text-align: center; margin-top: 0; margin-bottom: 20px; font-size: 1.2rem;">Upload to Padlet</h3>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 20px;">
-        <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); border-left: 4px solid var(--homework);">
-          <h4 style="color: var(--homework); margin: 0 0 6px 0; font-size: 0.95rem;">1. Your Prints</h4>
-          <p style="margin: 0; font-size: 0.85rem;">Photos of foam prints</p>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); border-left: 4px solid #9b59b6;">
-          <h4 style="color: #9b59b6; margin: 0 0 6px 0; font-size: 0.95rem;">2. Research Page</h4>
-          <p style="margin: 0; font-size: 0.85rem;">Your A3 digital page</p>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); border-left: 4px solid var(--quiz);">
-          <h4 style="color: var(--quiz); margin: 0 0 6px 0; font-size: 0.95rem;">3. Progress PDF</h4>
-          <p style="margin: 0; font-size: 0.85rem;">Your documentation</p>
-        </div>
-      </div>
-
-      <div style="text-align: center;">
-        <a href="https://padlet.com/artslondon/digital-manipulations-through-printmakingwith-fun-foam-kyqtciy5nusv5xzg" target="_blank" style="display: inline-block; background: var(--secondary); color: white; padding: 15px 35px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 5px 20px rgba(10, 128, 128, 0.4);">
-          📤 Upload to Padlet →
-        </a>
-      </div>
-    </div>
-
-    <h2>What You Learned</h2>
-    <div class="info-box" style="background: #e8f5e9; border-color: #4caf50;">
-      <ul style="margin: 0;">
-        <li><strong>Made foam stamps</strong> and printed unique designs</li>
-        <li><strong>Used Photoshop</strong> to clean and edit your prints</li>
-        <li><strong>Removed backgrounds</strong> so you can use prints anywhere</li>
-        <li><strong>Built a research page</strong> with annotation</li>
-        <li><strong>Connected</strong> handmade work with digital design</li>
-      </ul>
-    </div>
-
-    <div class="nav-buttons">
-      <button class="nav-btn prev-btn" onclick="goToSection('task2')">Previous</button>
-      <button class="nav-btn next-btn" onclick="goToSection('overview')">Back to Start</button>
-    </div>
-  </div>
-
-  <!-- Modal -->
-  <div id="imageModal" class="modal">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modalImage">
-  </div>
-
-  <footer>© 2025 Digital Manipulations Through Printmaking with Fun Foam</footer>
+  <footer>UAL · Digital Skills · Fashion Design Term 3 · Print Making with Fun Foam</footer>
 </div>
 
-<button class="print-button" onclick="window.print()">🖨️</button>
+<div class="lightbox" id="lightbox"><img alt=""></div>
+<button class="print-btn" onclick="window.print()" title="Print">🖨️</button>
 
 <script>
-// Navigation
-const sections = ['overview', 'homework', 'task1', 'task2', 'task3'];
-let currentSection = 'overview';
 
-function goToSection(sectionId) {
-  if (!sectionId) return;
-  
-  document.querySelectorAll('.content-section').forEach(section => {
-    section.classList.remove('active');
+const SECTIONS = Array.from(document.querySelectorAll(".section")).map(s => s.id);
+function goTo(id) {
+  document.querySelectorAll(".section").forEach(s => s.classList.toggle("active", s.id == id));
+  document.querySelectorAll(".nav-btn").forEach(b => b.classList.toggle("active", b.dataset.target == id));
+  document.querySelectorAll("#" + id + " video").forEach(v => { v.play().catch(() => {}); });
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+document.querySelectorAll(".nav-btn").forEach(b => b.addEventListener("click", () => goTo(b.dataset.target)));
+document.querySelectorAll("[data-goto]").forEach(b => b.addEventListener("click", () => goTo(b.dataset.goto)));
+
+document.querySelectorAll(".step-head").forEach(h => h.addEventListener("click", () => h.parentElement.classList.toggle("open")));
+
+const PAGE = "t3-w3-lesson";
+function updateProgress() {
+  const boxes = document.querySelectorAll(".checklist:not(.nocount) input");
+  let ticked = 0;
+  boxes.forEach(b => { if (b.checked) ticked++; });
+  const pct = boxes.length ? Math.round((ticked / boxes.length) * 100) : 0;
+  const fill = document.getElementById("progFill");
+  if (fill) { fill.style.width = pct + "%"; document.getElementById("progText").textContent = pct + "%"; }
+  document.querySelectorAll(".nav-btn").forEach(btn => {
+    const sec = document.getElementById(btn.dataset.target);
+    const items = sec ? sec.querySelectorAll(".checklist:not(.nocount) input") : [];
+    let done = items.length > 0;
+    items.forEach(b => { if (!b.checked) done = false; });
+    btn.classList.toggle("done", done);
   });
-  
-  document.getElementById(sectionId).classList.add('active');
-  
-  document.querySelectorAll('.nav-block').forEach(block => {
-    block.classList.remove('active-block');
-    if (block.dataset.section === sectionId) {
-      block.classList.add('active-block');
-    }
+  document.querySelectorAll(".checklist").forEach(list => {
+    const all = list.querySelectorAll("input");
+    let n = 0;
+    all.forEach(b => { if (b.checked) n++; });
+    const count = list.querySelector(".count");
+    if (count) count.textContent = n + " / " + all.length;
+    const ready = list.querySelector(".ready");
+    if (ready) ready.classList.toggle("show", n == all.length);
   });
-  
-  currentSection = sectionId;
-  updateProgressBar();
-  window.scrollTo(0, 0);
 }
-
-function updateProgressBar() {
-  const progressBar = document.getElementById('progressBar');
-  const index = sections.indexOf(currentSection);
-  const percentage = ((index + 1) / sections.length) * 100;
-  progressBar.style.width = `${percentage}%`;
-}
-
-// Checklist
-function toggleChecked(element) {
-  element.classList.toggle('checked');
-  
-  const checkboxes = document.querySelectorAll('.checklist-checkbox');
-  const states = Array.from(checkboxes).map(cb => cb.classList.contains('checked'));
-  localStorage.setItem('foam-print-checklist', JSON.stringify(states));
-}
-
-// Modal
-function openModal(src) {
-  const modal = document.getElementById('imageModal');
-  const modalImg = document.getElementById('modalImage');
-  modal.style.display = "block";
-  modalImg.src = src;
-}
-
-function closeModal() {
-  document.getElementById('imageModal').style.display = "none";
-}
-
-// Close modal when clicking outside
-window.onclick = function(event) {
-  const modal = document.getElementById('imageModal');
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-}
-
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.nav-block').forEach(block => {
-    block.addEventListener('click', () => {
-      goToSection(block.dataset.section);
-    });
-  });
-  
-  document.querySelector('.nav-block[data-section="overview"]').classList.add('active-block');
-  updateProgressBar();
-  
-  // Load saved checklist
-  const savedStates = localStorage.getItem('foam-print-checklist');
-  if (savedStates) {
-    const states = JSON.parse(savedStates);
-    const checkboxes = document.querySelectorAll('.checklist-checkbox');
-    checkboxes.forEach((cb, i) => {
-      if (i < states.length && states[i]) {
-        cb.classList.add('checked');
-      }
-    });
-  }
+document.querySelectorAll(".checklist").forEach(list => {
+  const k = PAGE + "-" + list.id;
+  const boxes = list.querySelectorAll("input");
+  try {
+    const saved = JSON.parse(localStorage.getItem(k) || "[]");
+    boxes.forEach((b, i) => { if (saved[i]) b.checked = true; });
+  } catch (e) {}
+  boxes.forEach(b => b.addEventListener("change", () => {
+    try { localStorage.setItem(k, JSON.stringify(Array.from(boxes).map(x => x.checked))); } catch (e) {}
+    updateProgress();
+  }));
 });
+updateProgress();
+
+const lb = document.getElementById("lightbox");
+document.querySelectorAll("img.zoom").forEach(im => im.addEventListener("click", () => {
+  lb.querySelector("img").src = im.src;
+  lb.classList.add("open");
+}));
+lb.addEventListener("click", () => lb.classList.remove("open"));
+document.addEventListener("keydown", e => { if (e.key == "Escape") lb.classList.remove("open"); });
+
 </script>
 
 </body>
