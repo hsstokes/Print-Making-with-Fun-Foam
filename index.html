@@ -548,14 +548,19 @@ img { max-width:100%; }
     <div class="step">
       <button class="step-head"><span class="step-num bg-teal">3</span>Remove the white areas<span class="arrow">▶</span></button>
       <div class="step-body">
-<ol>
-          <li>Unlock the layer: in the <strong>Layers</strong> panel, click the 🔒 on the <strong translate="no">Background</strong> layer</li>
-          <li>Choose the <strong translate="no">Magic Wand Tool</strong> (<span class="key" translate="no">W</span>)</li>
-          <li>Click on a <strong>white</strong> area</li>
+<p>First: is there a 🔒 on your layer? Click it to unlock.</p>
+        <p>Choose <strong>one</strong> way to select the white:</p>
+        <div class="cards">
+          <div class="card teal"><div class="label">Option A · Rectangular Marquee</div><p>Choose the <strong translate="no">Rectangular Marquee Tool</strong> (<span class="key" translate="no">M</span>).<br>Drag a <strong>small box</strong> on a white area.</p></div>
+          <div class="card pink"><div class="label">Option B · Magic Wand</div><p>Choose the <strong translate="no">Magic Wand Tool</strong> (<span class="key" translate="no">W</span>).<br><strong>Click</strong> on a white area.</p></div>
+        </div>
+        <p>Then:</p>
+        <ol>
           <li><span class="path" translate="no">Select › Similar</span> — now all the white is selected</li>
-          <li>Press <span class="key" translate="no">Delete</span> on your keyboard</li>
+          <li>Press <span class="key" translate="no">Delete</span></li>
           <li><span class="path" translate="no">Select › Deselect</span> <span class="key" translate="no">Ctrl</span> + <span class="key" translate="no">D</span> (Mac: <span class="key" translate="no">Cmd</span> + <span class="key" translate="no">D</span>)</li>
         </ol>
+        <img class="zoom" src="images/select-similar.png" alt="Select menu with Similar highlighted, a small marquee box on the white paper" loading="lazy" onerror="this.style.display='none'">
         <div class="box teal"><strong>Why?</strong><p style="margin:6px 0 0">Now only your print is left. You can put it on <strong>any</strong> background.</p></div>
       </div>
     </div>
@@ -587,8 +592,9 @@ img { max-width:100%; }
     </div>
     <div class="stuck">
       <div class="stuck-head">🆘 Stuck? Try this</div>
-      <div class="row"><div class="prob">Delete opens a <strong>Fill</strong> window</div><div class="fix">The layer is locked. Click <strong>Cancel</strong>. Unlock the Background layer (🔒). Try again.</div></div>
-      <div class="row"><div class="prob">The Magic Wand selects my print too</div><div class="fix">Lower the <strong>Tolerance</strong> in the top options bar (try 20). Click the white again.</div></div>
+      <div class="row"><div class="prob">Delete opens a <strong>Fill</strong> window</div><div class="fix">The layer is locked. Click <strong>Cancel</strong>. In the Layers panel, click the 🔒 on the Background layer. Try again.</div></div>
+      <div class="row"><div class="prob">Pressing <span class="key" translate="no">M</span> or <span class="key" translate="no">W</span> shows a different tool</div><div class="fix">Press <span class="key" translate="no">Shift</span> + the same key until the right tool shows.</div></div>
+      <div class="row"><div class="prob">Select › Similar takes some of my print too</div><div class="fix">Make the box smaller, on pure white. Magic Wand: lower the <strong>Tolerance</strong> in the top options bar (try 20).</div></div>
       <div class="row"><div class="prob">White bits are still inside the print</div><div class="fix"><span class="path" translate="no">Select › Similar</span> again, or raise the Tolerance a little.</div></div>
       <div class="row"><div class="prob">After Levels my print looks pale</div><div class="fix">Move the white slider <strong>less</strong> far.</div></div>
       <div class="row"><div class="prob">A shortcut does not work</div><div class="fix">Use the menu path instead.</div></div>
@@ -777,7 +783,7 @@ const SECTIONS = Array.from(document.querySelectorAll(".section")).map(s => s.id
 function goTo(id) {
   document.querySelectorAll(".section").forEach(s => s.classList.toggle("active", s.id == id));
   document.querySelectorAll(".nav-btn").forEach(b => b.classList.toggle("active", b.dataset.target == id));
-  document.querySelectorAll("#" + id + " video").forEach(v => { v.play().catch(() => {}); });
+  document.querySelectorAll("#" + id + " video[autoplay]").forEach(v => { v.play().catch(() => {}); });
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 document.querySelectorAll(".nav-btn").forEach(b => b.addEventListener("click", () => goTo(b.dataset.target)));
